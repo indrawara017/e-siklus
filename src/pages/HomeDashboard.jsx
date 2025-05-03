@@ -66,13 +66,10 @@ const HomeDashboard = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-[#e5e5e5]">
-            <main className="flex-grow flex flex-col items-center justify-center p-4 max-w-3xl mx-auto w-full">
-                <div className="flex flex-col items-center mb-2">
-                    {!searched && <img src={logosma} alt="Logo SMA" className="h-40" />}
-                    <img src={logo} alt="Logo e-SIKLUS" className="h-20" />
-                    <h1 className="text-[10px] sm:text-xs text-center font-medium">
-                        ELEKTRONIK SMANSASIH INFORMASI KELULUSAN SISWA
-                    </h1>
+            <main className="flex-grow flex flex-col items-center justify-center p-5 max-w-3xl mx-auto w-full">
+                <div className="flex flex-col items-center">
+                    {!searched && <img src={logosma} alt="Logo SMA" className="h-35 -mb-5" />}
+                    <img src={logo} alt="Logo e-SIKLUS" className="h-24 -mb-2" />
                 </div>
 
                 {!searched && !countdownFinished && (
@@ -84,7 +81,7 @@ const HomeDashboard = () => {
                 {!searchResults.length && (
                     <form
                         onSubmit={handleSearch}
-                        className="space-y-4 mt-2 w-full max-w-md mx-auto"
+                        className="space-y-4 mt-5 w-full max-w-md mx-auto"
                     >
                         <input
                             type="text"
