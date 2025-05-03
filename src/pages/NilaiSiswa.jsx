@@ -144,7 +144,9 @@ const NilaiSiswa = () => {
                 {/* Catatan Kelulusan */}
                 <div className="mt-6 text-sm">
                     <p><span className="font-semibold">Catatan:</span></p>
-                    <p className="text-jusify">Bagi siswa yang sudah dinyatakan LULUS bisa mengambil Surat Keterangan Lulus (SKL) di SMA Negeri 1 Sumberasih pada hari Senin tanggal 12 Mei 2025 jam 09:00 WIB.</p>
+                    <p className="text-justify">
+                        Bagi siswa yang dinyatakan <span className="font-semibold">LULUS</span>, dapat mengambil Surat Keterangan Lulus (SKL) di SMA Negeri 1 Sumberasih pada hari Senin, 12 Mei 2025 pukul 09.00 WIB.
+                    </p>
                 </div>
             </div>
         </div>
