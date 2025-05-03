@@ -4,10 +4,12 @@ import { db } from "../services/firebase";
 import Sidebar from "../components/Sidebar";
 import TambahSiswa from "../components/TambahSiswa";
 import DaftarSiswa from "../components/DaftarSiswa";
+import FormEditSiswa from "../components/FormEditSiswa";
 
 const AdminDashboard = () => {
   const [students, setStudents] = useState([]);
   const [activeTab, setActiveTab] = useState("tambah");
+  const [editingStudent, setEditingStudent] = useState(null);
 
   const fetchData = async () => {
     const snapshot = await getDocs(collection(db, "students"));
@@ -23,7 +25,23 @@ const AdminDashboard = () => {
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="flex-1 p-1">
         {activeTab === "tambah" && <TambahSiswa onStudentAdded={fetchData} />}
-        {activeTab === "daftar" && <DaftarSiswa students={students} onDelete={fetchData} />}
+
+        {activeTab === "daftar" && (
+          <>
+            {editingStudent && (
+              <FormEditSiswa
+                siswa={editingStudent}
+                onCancel={() => setEditingStudent(null)}
+                onUpdate={fetchData}
+              />
+            )}
+            <DaftarSiswa
+              students={students}
+              onDelete={fetchData}
+              onEdit={setEditingStudent}
+            />
+          </>
+        )}
       </div>
     </div>
   );

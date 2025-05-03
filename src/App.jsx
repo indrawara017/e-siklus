@@ -3,7 +3,7 @@ import AdminLogin from "./components/AdminLogin";
 import HomeDashboard from "./pages/HomeDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NilaiSiswa from "./pages/NilaiSiswa";
-import Footer from "./components/Footer";
+import FormEditSiswa from "./components/FormEditSiswa";
 import './App.css'
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/nilai/:id" element={<NilaiSiswa />} />
+        <Route path="/edit/:id" element={<FormEditSiswa />} />
       </Routes>
     </Router>
   );

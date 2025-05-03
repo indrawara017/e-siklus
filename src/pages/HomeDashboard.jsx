@@ -164,12 +164,12 @@ const HomeDashboard = () => {
                     </div>
                 )}
                 {/* Tombol Login */}
-                <div className="flex justify-end mt-2">
+                <div className="hidden md:block absolute top-4 right-4 z-50">
                     <button
                         onClick={() => navigate("/login")}
-                        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                        className="bg-white-600 text-white px-4 py-2 rounded hover:bg-white-500 shadow"
                     >
-                        Login
+                        Hanya admin
                     </button>
                 </div>
             </main>
