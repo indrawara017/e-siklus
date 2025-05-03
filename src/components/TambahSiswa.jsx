@@ -14,8 +14,8 @@ const TambahSiswa = ({ onStudentAdded }) => {
             matematika: "", sejarah: "", pjok: "", seniBudaya: "", prakarya: ""
         },
         mapelPeminatan: {
-            // biologi: "", fisika: "", kimia: "",
-            ekonomi: "", geografi: "", sosiologi: "", sejarahLanjutan: ""
+            biologi: "", fisika: "", kimia: "", ekonomi: "",
+            geografi: "", sosiologi: "", sejarahLanjutan: ""
         },
         jumlah: "",
         rataRata: "",

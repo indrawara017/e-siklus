@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../services/firebase";
+import logo from "../assets/logo.png";
 
 const NilaiSiswa = () => {
     const { id } = useParams();
@@ -71,25 +72,25 @@ const NilaiSiswa = () => {
     const mapelPeminatan = nilai.mapelPeminatan || {};
 
     return (
-        <div className="min-h-screen bg-white text-black px-6 py-12 font-serif text-[13pt] leading-relaxed" style={{ maxWidth: "794px", margin: "0 auto" }}>
+        <div className="bg-white text-black px-6 py-1 font-serif text-[13pt] leading-relaxed" style={{ maxWidth: "794px", margin: "0 auto" }}>
 
             {/* Judul */}
-            <div className="text-center my-4">
-                <p className="font-bold text-lg">SURAT KETERANGAN LULUS (SKL)</p>
+            <div className="flex flex-col items-center mb-2">
+                <img src={logo} alt="Logo e-SIKLUS" className="h-20" />
             </div>
 
             {/* Identitas */}
-            <table className="mb-4">
-                <tbody>
-                    <tr><td className="pr-4">Nama Siswa</td><td>: {nilai.nama}</td></tr>
-                    <tr><td>Tempat Tanggal Lahir</td><td>: {nilai.tempatLahir}, {nilai.tanggalLahir}</td></tr>
-                    <tr><td>Nomor Induk Siswa</td><td>: {nilai.nis}</td></tr>
-                    <tr><td>Nomor Induk Siswa Nasional</td><td>: {nilai.nisn}</td></tr>
+            <table className="mb-2 text-sm">
+                <tbody className="text-sm">
+                    <tr><td className="pr-2">NAMA SISWA</td><td>: {nilai.nama}</td></tr>
+                    <tr><td>TTL</td><td>: {nilai.tempatLahir}, {nilai.tanggalLahir}</td></tr>
+                    <tr><td>NIS</td><td>: {nilai.nis}</td></tr>
+                    <tr><td>NISN</td><td>: {nilai.nisn}</td></tr>
                 </tbody>
             </table>
 
             {/* Nilai */}
-            <p className="mb-2">Dengan hasil sebagai berikut:</p>
+            <p className="mb-2 text-sm">Dengan hasil sebagai berikut:</p>
             <table className="w-full mb-4 border border-black border-collapse text-sm">
                 <thead>
                     <tr className="bg-gray-100">
@@ -107,7 +108,7 @@ const NilaiSiswa = () => {
                         .filter(({ key }) => mapelUmum[key] !== null && mapelUmum[key] !== undefined && mapelUmum[key] !== "")
                         .map(({ key, label }, index) => (
                             <tr key={key}>
-                                <td className="border border-black px-2 py-1">{index + 1}</td>
+                                <td className="border border-black px-2 py-1 text-center">{index + 1}</td>
                                 <td className="border border-black px-2 py-1">{label}</td>
                                 <td className="border border-black px-2 py-1 text-center">{mapelUmum[key]}</td>
                             </tr>
@@ -120,7 +121,7 @@ const NilaiSiswa = () => {
                         .filter(({ key }) => mapelPeminatan[key] !== null && mapelPeminatan[key] !== undefined && mapelPeminatan[key] !== "")
                         .map(({ key, label }, index) => (
                             <tr key={`p-${key}`}>
-                                <td className="border border-black px-2 py-1">
+                                <td className="border border-black px-2 py-1 text-center">
                                     {urutanMapel.filter(({ key }) => mapelUmum[key] !== null && mapelUmum[key] !== undefined && mapelUmum[key] !== "").length + index + 1}
                                 </td>
                                 <td className="border border-black px-2 py-1">{label}</td>
@@ -139,13 +140,12 @@ const NilaiSiswa = () => {
                 </tbody>
             </table>
             {/* Tombol kembali */}
-            <div className="mt-10 text-center">
-                <button
-                    onClick={handleBackToHome}
-                    className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                >
-                    Kembali ke Beranda
-                </button>
+            <div className="mt-1 text-left">
+                {/* Catatan Kelulusan */}
+                <div className="mt-6 text-sm">
+                    <p><span className="font-semibold">Catatan:</span></p>
+                    <p className="text-jusify">Bagi siswa yang sudah dinyatakan LULUS bisa mengambil Surat Keterangan Lulus (SKL) di SMA Negeri 1 Sumberasih pada hari Senin tanggal 12 Mei 2025 jam 09:00 WIB.</p>
+                </div>
             </div>
         </div>
     );

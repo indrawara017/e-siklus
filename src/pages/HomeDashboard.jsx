@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../services/firebase";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import logosma from "../assets/logorapor.png";
 import Footer from "../components/Footer";
 import "react-datepicker/dist/react-datepicker.css";
