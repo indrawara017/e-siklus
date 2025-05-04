@@ -72,12 +72,6 @@ const HomeDashboard = () => {
                     <img src={logo} alt="Logo e-SIKLUS" className="h-24 -mb-2" />
                 </div>
 
-                {!searched && !countdownFinished && (
-                    <CountdownTimer
-                        targetDate={new Date("2025-05-05T09:00:00+07:00")}
-                        onFinish={handleCountdownFinish}
-                    />
-                )}
                 {!searchResults.length && (
                     <form
                         onSubmit={handleSearch}
@@ -116,6 +110,13 @@ const HomeDashboard = () => {
                             Cek Kelulusan
                         </button>
                     </form>
+                )}
+                
+                {!searched && !countdownFinished && (
+                    <CountdownTimer
+                        targetDate={new Date("2025-05-05T09:00:00+07:00")}
+                        onFinish={handleCountdownFinish}
+                    />
                 )}
 
                 {loading && <p>Loading...</p>}

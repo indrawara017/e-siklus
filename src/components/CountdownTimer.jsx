@@ -68,7 +68,7 @@ const CountdownTimer = ({ targetDate, onFinish }) => {
     if (!show) return null;
 
     return (
-        <div className="text-center p-1 w-full">
+        <div className="text-center p-2 w-full">
             <div className="flex justify-center gap-1">
                 <FlipUnit label="Hari" value={timeLeft.days} blink={blink.days} />
                 <FlipUnit label="Jam" value={timeLeft.hours} blink={blink.hours} />
