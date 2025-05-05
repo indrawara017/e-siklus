@@ -4,6 +4,7 @@ import HomeDashboard from "./pages/HomeDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NilaiSiswa from "./pages/NilaiSiswa";
 import FormEditSiswa from "./components/FormEditSiswa";
+import { Analytics } from "@vercel/analytics/react"
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/nilai/:id" element={<NilaiSiswa />} />
         <Route path="/edit/:id" element={<FormEditSiswa />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
